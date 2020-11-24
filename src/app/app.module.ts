@@ -10,11 +10,18 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+
+import { AuthService } from './services/auth.service';
+import { GuardGuard } from './services/guard.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
@@ -24,7 +31,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
     SharedModule,
     ServiceWorkerModule.register('/../ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    GuardGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
