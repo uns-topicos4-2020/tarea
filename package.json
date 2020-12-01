@@ -48,6 +48,7 @@
     "core-js": "^2.6.11",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "font-awesome": "^4.7.0",
     "http-server": "^0.12.1",
     "path": "^0.12.7",
     "request": "^2.88.0",
