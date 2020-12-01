@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as morgan from 'morgan';
+import { result } from '../setting/init_db'
 
 class Api {
   public app;
@@ -19,6 +20,16 @@ class Api {
         message: this.message
       });
     });
+
+    router.get('/users', (req, res) => {
+      try {
+        const res = result
+        return res.status(200).send({message: "ok"})
+
+      } catch (error) {
+        return res.status(500).send(error)
+      }
+    })
 
     module.exports = router;
   }
