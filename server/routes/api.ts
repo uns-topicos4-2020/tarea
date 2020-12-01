@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as morgan from 'morgan';
 
 class Api {
   public app;
@@ -6,6 +7,7 @@ class Api {
 
   constructor () {
     this.app = express();
+    this.app.use(morgan("combined"));
     this.mountRoutes();
   }
 

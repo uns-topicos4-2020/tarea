@@ -32,21 +32,17 @@ const routes: Routes = [
       {
         path: 'admin',
         component: AdminComponent
-      },
-      {
-      path : '',
-      pathMatch: 'full',
-      redirectTo: '/login'
-      },
-      {
-      path : '**',
-      redirectTo: '/'
       }
+      // {
+      // path : '',
+      // pathMatch: 'full',
+      // redirectTo: '/login'
+      // },
+      // {
+      // path : '**',
+      // redirectTo: '/'
+      // }
     ]
-  },
-  {
-  path : '**',
-  redirectTo: '/'
   }
 
 ];
