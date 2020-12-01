@@ -20,11 +20,18 @@ class Api {
         message: this.message
       });
     });
+    router.post('/login', (req, res) => {
+      try {
+        return res.status(200).send({user: req.body})
 
+      } catch (error) {
+        return res.status(500).send(error)
+      }
+    })
     router.get('/users', (req, res) => {
       try {
         const query = result
-        return res.status(200).send({users: query["__zone_symbol__value"]})
+        return res.status(200).send({users: query["__zone_symbol__value"]["rows"]})
 
       } catch (error) {
         return res.status(500).send(error)

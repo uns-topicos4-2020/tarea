@@ -1,5 +1,8 @@
 
-import { Component, ElementRef, OnInit, Renderer2} from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ElementRef, OnInit, Renderer2} from '@angular/core';
+import { AuthService } from '../services/auth.service'
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -12,13 +15,28 @@ export class LoginComponent implements OnInit {
  
   abueloNodo: Renderer2;
   papaNodo: ElementRef;
+
+  FormAuth: FormGroup
  
 
   constructor(
+    private _AuthService:AuthService,
+    @Inject(PLATFORM_ID) private platformId, 
+    private _FormBuilder: FormBuilder,
     private rend2: Renderer2   //Permite asignar valores a los elementos del Doom
   ) { }
 
   ngOnInit(): void {
+    this.FormAuth = this._FormBuilder.group({
+      username: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(8)]]
+    })
+    if(isPlatformBrowser(this.platformId)) {
+
+    }
+    if(isPlatformServer(this.platformId)) {
+     
+    }
     
     
   }
@@ -32,14 +50,12 @@ export class LoginComponent implements OnInit {
   */
 
  onFocusMethod(element: ElementRef){
-  //console.log(element["target"]);  //Obtengo el elemento Seleccionado
   this.papaNodo = this.rend2.parentNode(element["target"]);  //Capturo al padre del elemento seleccionado
   this.abueloNodo = this.rend2.parentNode(this.papaNodo); //Capturo al abuelo del elemento seleccionado
   this.rend2.addClass(this.abueloNodo,"focus"); //Le añado la clase focus
  }
 
   onBlurMethod(element: ElementRef, value: String){
-    console.log(element["target"]); 
     this.papaNodo = this.rend2.parentNode(element["target"]);
     this.abueloNodo = this.rend2.parentNode(this.papaNodo);
     if (value == ""){
@@ -47,6 +63,13 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  
+  login() {
+    console.log(this.FormAuth.value)
+    this._AuthService.SignIn(this.FormAuth.value).subscribe(ok => {
+      console.log(ok)
+    }, err => {
+      console.log(err)
+    })
+  }
 
 }

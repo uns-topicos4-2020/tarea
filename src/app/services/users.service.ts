@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UsersService {
 
   constructor(private _HttpClient:HttpClient) { }
 
-  SignIn(user: any):Observable<any> {
-     return this._HttpClient.post(`api/login`, {body: user});
-  }
-
+  Users():Observable<any> {
+    return this._HttpClient.get(`api/users`);
+ }
 }
