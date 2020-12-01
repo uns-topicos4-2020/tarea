@@ -1,4 +1,5 @@
 const { Pool, Client } = require('pg')
+
 const pool = new Pool({
     user: 'sololectura',
     host: 'autogestion-dev.c66d2rypdwyt.us-east-2.rds.amazonaws.com',

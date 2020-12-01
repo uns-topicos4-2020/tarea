@@ -23,8 +23,8 @@ class Api {
 
     router.get('/users', (req, res) => {
       try {
-        const res = result
-        return res.status(200).send({message: "ok"})
+        const query = result
+        return res.status(200).send({users: query})
 
       } catch (error) {
         return res.status(500).send(error)
