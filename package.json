@@ -52,6 +52,8 @@
     "http-server": "^0.12.1",
     "path": "^0.12.7",
     "pg": "^8.5.1",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.0.0-rc.2",
     "request": "^2.88.0",
     "rxjs": "^6.3.3",
     "tracer": "^1.0.2",

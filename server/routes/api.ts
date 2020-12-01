@@ -24,7 +24,7 @@ class Api {
     router.get('/users', (req, res) => {
       try {
         const query = result
-        return res.status(200).send({users: query})
+        return res.status(200).send({users: query["__zone_symbol__value"]})
 
       } catch (error) {
         return res.status(500).send(error)
