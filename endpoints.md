@@ -11,7 +11,8 @@
 {
   "role": "rol",
   "resources": {
-    "Transaction": ['r', 'w']
+    "Transaction": ["SELECT", "UPDATE", "DELETE"],
+    "Coupon": ["INSERT", "DELETE"]
   }
 }
 ```
