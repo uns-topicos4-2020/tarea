@@ -3,7 +3,7 @@ import { Component, Inject, PLATFORM_ID, ElementRef, OnInit, Renderer2} from '@a
 import { AuthService } from '../services/auth.service'
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -41,13 +41,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  /*
-  eventFocus(){
-    //console.log(this.InputPersonalizado.nativeElement);
-    
-    this.rend2.addClass(this.InputPersonalizado.nativeElement,"focus");  //Añade la clase focus el InputPersonlizado 
-  }
-  */
+
 
  onFocusMethod(element: ElementRef){
   this.papaNodo = this.rend2.parentNode(element["target"]);  //Capturo al padre del elemento seleccionado
@@ -65,11 +59,39 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.FormAuth.value)
+    Swal.fire({
+      title: '¡SUCESS!',
+      text: 'Usuario Correcto',
+      icon: 'success',
+      confirmButtonColor: '#38d39f',
+    })
+
+
+
+    /*
     this._AuthService.SignIn(this.FormAuth.value).subscribe(ok => {
-      console.log(ok)
+
+      
+      Swal.fire({
+        title: '¡SUCESS!',
+        text: 'Usuario Correcto',
+        icon: 'success',
+        confirmButtonColor: '#38d39f',
+      })
+
+
     }, err => {
       console.log(err)
+
+      Swal.fire({
+        title: '¡ERROR!',
+        text: err.message,
+        icon: 'error',
+        confirmButtonColor: '#E54866',
+      })
+
     })
+    */
   }
 
 }
