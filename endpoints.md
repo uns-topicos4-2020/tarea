@@ -9,11 +9,8 @@
 #### Response 200 OK
 ```json
 {
-  "role": "rol",
-  "resources": {
-    "Transaction": ["SELECT", "UPDATE", "DELETE"],
-    "Coupon": ["INSERT", "DELETE"]
-  }
+  "Transaction": ["SELECT", "UPDATE", "DELETE"],
+  "Coupon": ["INSERT", "DELETE"]
 }
 ```
 #### Response 401 Unauthorized
