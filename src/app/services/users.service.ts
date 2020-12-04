@@ -11,6 +11,6 @@ export class UsersService {
   constructor(private _HttpClient:HttpClient) { }
 
   Users():Observable<any> {
-    return this._HttpClient.get(`api/users`);
+    return this._HttpClient.get(`${environment.api.host}${environment.api.version}/users`);
  }
 }
