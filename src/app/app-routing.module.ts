@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   // {
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'admin',
         component: AdminComponent
+      },
+      {
+        path: 'main',
+        component: MainComponent
       },
       {
       path : '',

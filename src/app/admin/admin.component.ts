@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { UsersService } from '../services/users.service'
+import * as $ from '../../../node_modules/admin-lte/plugins/jquery/jquery.js'
 
-declare const $:any;
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
