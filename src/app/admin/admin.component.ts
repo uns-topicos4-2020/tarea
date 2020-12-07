@@ -2,6 +2,37 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { UsersService } from '../services/users.service'
 
+
+class UserModel implements UserModel {
+  "id": any;
+  "createdAt": String;
+  "name": String;
+  "avatar": String;
+  "role": {
+      "__request_id": any,
+      "Transaction": [],
+      "Coupon": [],
+      "user": String,
+      "passsword": String
+  }
+
+}
+
+interface UserModel {
+"id": any;
+"createdAt": String;
+"name": String;
+"avatar": String;
+"role": {
+    "__request_id": any,
+    "Transaction": [],
+    "Coupon": [],
+    "user": String,
+    "passsword": String
+}
+
+}
+
 declare const $:any;
 @Component({
   selector: 'app-admin',
@@ -9,6 +40,7 @@ declare const $:any;
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit, OnDestroy {
+  Users: Array<UserModel> = Array<UserModel>();
 
 
 
