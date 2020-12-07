@@ -1,6 +1,32 @@
+
+
+/*=============================================
+     COLORES 
+=============================================*/
+
+$colorPrincipal: #38d39f;
+$colorHover: #175440;
+$colorFondo: #f5f5f5;
+
+
+.fondoPrincipal{
+    background: $colorPrincipal!important;
+}
+
+.fondoOscuro{
+  background: $colorHover;
+}
+
+
+  
+/*=============================================
+    DROPDOWN MENU
+=============================================*/
+
+
 .user-menu > .nav-link {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
   
   .user-menu > .nav-link:after {
     content: none;

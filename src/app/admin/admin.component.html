@@ -5,13 +5,13 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Company</b></h2>
+                        <h2>Administrar <b>Compañia</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-primary" data-toggle="modal"><i class="fa fa-plus"></i>
-                            <span>Add</span></a>
-                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i
-                                class="fa fa-minus"></i> <span>Delete</span></a>
+                        <a href="#addEmployeeModal" class="btn btn-primary fondoSuccess" data-toggle="modal"><i class="fa fa-plus"></i>
+                            <span>Añadir</span></a>
+                        <a href="#deleteEmployeeModal" class="btn btn-danger fondoDanger" data-toggle="modal"><i
+                                class="fa fa-minus"></i> <span>Eliminar</span></a>
                     </div>
                 </div>
             </div>
@@ -46,24 +46,24 @@
                             <td>
                         
                             <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="fa fa-edit"
-                                    data-toggle="tooltip" title="Edit"></i></a>
-                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa fa-close"
-                                    data-toggle="tooltip" title="Delete"></i></a>
+                                    data-toggle="tooltip" title="Editar Compañia"></i></a>
+                            <a href="#deleteEmployeeModal" class="delete " data-toggle="modal"><i class="fa fa-close textDanger"
+                                    data-toggle="tooltip" title="Eliminar Compañia"></i></a>
                         </td>
                     </tr>
                   
                 </tbody>
             </table>
             <div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>100</b> entries</div>
+                <div class="hint-text">Mostrando <b>5</b> de <b>100</b> entradas</div>
                 <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Previous</a></li>
+                    <li class="page-item disabled"><a href="#">Anterior</a></li>
                     <li class="page-item"><a href="#" class="page-link">1</a></li>
                     <li class="page-item"><a href="#" class="page-link">2</a></li>
                     <li class="page-item active"><a href="#" class="page-link">3</a></li>
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
                     <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Siguiente</a></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Employee</h4>
+                        <h4 class="modal-title">Añadir Compañia</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -109,7 +109,7 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Employee</h4>
+                        <h4 class="modal-title">Editar Compañia</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -131,8 +131,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-info" value="Save">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        <input type="submit" class="btn btn-info" value="Guardar">
                     </div>
                 </form>
             </div>
@@ -144,12 +144,12 @@
             <div class="modal-content">
                 <form>
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete Employee</h4>
+                        <h4 class="modal-title">Eliminar Compañia</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to delete these Records?</p>
-                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                        <p>¿Estás Seguro que desea eliminar?</p>
+                        <p class="font-weight-bold textDanger"><small>Esta acción no podrá restablecerse.</small></p>
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
