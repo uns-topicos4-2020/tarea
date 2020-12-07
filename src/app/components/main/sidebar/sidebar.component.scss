@@ -1,0 +1,29 @@
+
+/*=============================================
+     COLORES 
+=============================================*/
+
+$colorPrincipal: #38d39f;
+$colorHover: #175440;
+$colorFondo: #f5f5f5;
+
+
+/*=============================================
+     SIDEBAR
+=============================================*/
+.fondoPrincipal{
+    background: $colorPrincipal!important;
+}
+
+[class*='sidebar-dark-'] .sidebar a, [class*=sidebar-dark-][_ngcontent-my-app-c3] .sidebar[_ngcontent-my-app-c3] a[_ngcontent-my-app-c3]{
+    color: white;
+}
+
+[class*='sidebar-dark'] .user-panel, [class*='sidebar-dark'] .brand-link {
+    border-bottom: 1px solid rgba(white,.3);
+}
+
+
+.nav-sidebar .nav-item > .nav-link:hover{
+ background: $colorHover!important;
+}

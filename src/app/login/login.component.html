@@ -7,7 +7,7 @@
     <!-------------------------------------------------------- 
              IMAGEN DE OLA
     --------------------------------------------------------->
-    <img class="wave" [src]="['/assets/img/wave.png']">
+    <img class="wave" [src]="['/assets/img/login/wave.png']">
 
 
     <!-------------------------------------------------------- 
@@ -21,7 +21,7 @@
              IMAGEN DE CELULAR
         --------------------------------------------------------->
         <div class="imgCelular">
-            <img [src]="['/assets/img/bg.svg']">
+            <img [src]="['/assets/img/login/bg.svg']">
         </div>
 
 
@@ -34,9 +34,9 @@
 
             <form [formGroup]="FormAuth" (ngSubmit)="login()">
 
-                <img [src]="['/assets/img/avatar.svg']">
+                <img [src]="['/assets/img/login/avatar.svg']">
 
-                <h2 class="title">Welcome</h2>
+                <h2 class="title">Bienvenido</h2>
 
                 <div class="input-div one" #InputPersonalizado>
 
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="div" >
-                        <h5>Username</h5>
+                        <h5>Correo</h5>
                         <input type="text" formControlName="username"   [ngClass]="'input'" (focus)="onFocusMethod($event)"  (blur)="onBlurMethod($event, $event.target.value)" >
                     </div>
                 </div>
@@ -57,14 +57,14 @@
                     </div>
 
                     <div class="div" >
-                        <h5>Password</h5>
+                        <h5>Contraseña</h5>
                         <input type="password" formControlName="password"   [ngClass]="'input'" (focus)="onFocusMethod($event)" (blur)="onBlurMethod($event, $event.target.value)">
                     </div>
 
                 </div>
 
-                <a href="#">Forgot Password?</a>
-                <input type="submit" class="btn" value="Login">
+                <a href="#">¿Se olvidó contraseña?</a>
+                <button type="submit" class="btn" >Entrar</button>
 
             </form>
 

@@ -1,0 +1,34 @@
+<li class="nav-item dropdown user-menu">
+    <a
+      class="nav-link dropdown-toggle"
+      data-toggle="dropdown"
+      (click)="toggleDropdownMenu()"
+    >
+      <img
+        [src]="user.image"
+        class="user-image img-circle elevation-2"
+        alt="User Image"
+      />
+    </a>
+    <ul #dropdownMenu class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <!-- User image -->
+      <li class="user-header fondoPrincipal">
+        <img [src]="user.image" class="img-circle elevation-2" alt="User Image" />
+  
+        <p>
+          <strong class="text-white"> Normal User</strong>
+          <small class="text-white"> Hace un momento</small>
+        </p>
+      </li>
+    
+      
+      <!-- Menu Footer-->
+      <li class="user-footer">
+       
+        <a (click)="logout()" class="btn fondoOscuro btn-flat float-right text-white"
+          >Sign out</a
+        >
+      </li>
+    </ul>
+  </li>
+  
