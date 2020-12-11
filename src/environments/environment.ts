@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_client_fine: {
+    host: "https://topicos4.rc94.xyz",
+    version: "api/v1"
+  }
 };

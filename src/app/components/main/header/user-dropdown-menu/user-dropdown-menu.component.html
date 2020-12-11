@@ -24,9 +24,11 @@
       
       <!-- Menu Footer-->
       <li class="user-footer">
-       
-        <a (click)="logout()" class="btn fondoOscuro btn-flat float-right text-white"
-          >Sign out</a
+        <a [routerLink]="['/profile']" class="btn fondoSuccess text-white btn-flat">
+          Perfil
+        </a>
+        <a (click)="logout()" class="btn fondoDanger btn-flat float-right text-white"
+          >Salir</a
         >
       </li>
     </ul>

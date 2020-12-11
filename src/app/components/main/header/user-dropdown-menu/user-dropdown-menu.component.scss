@@ -8,6 +8,21 @@ $colorPrincipal: #38d39f;
 $colorHover: #175440;
 $colorFondo: #f5f5f5;
 
+$colorSuccess: #41C2EB;
+$colorDanger: #EC476D;
+
+.fondoSuccess{
+    background: $colorSuccess;
+}
+
+.textDanger{
+    color: $colorDanger;
+}
+
+.fondoDanger{
+    background: $colorDanger;
+}
+
 
 .fondoPrincipal{
     background: $colorPrincipal!important;

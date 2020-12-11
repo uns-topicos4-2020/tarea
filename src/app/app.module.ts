@@ -22,6 +22,7 @@ import { UserDropdownMenuComponent } from './components/main/header/user-dropdow
 
 import { AuthService } from './services/auth.service';
 import { GuardGuard } from './services/guard.guard';
+import { TablasComponent } from './components/views/tablas/tablas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { GuardGuard } from './services/guard.guard';
     FooterComponent,
     MainComponent,
     HeaderComponent,
-    UserDropdownMenuComponent
+    UserDropdownMenuComponent,
+    TablasComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),

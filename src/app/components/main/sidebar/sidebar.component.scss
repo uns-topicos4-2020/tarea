@@ -23,6 +23,10 @@ $colorFondo: #f5f5f5;
     border-bottom: 1px solid rgba(white,.3);
 }
 
+[class*='sidebar-dark-'] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*='sidebar-dark-'] .nav-sidebar > .nav-item:hover > .nav-link, [class*='sidebar-dark-'] .nav-sidebar > .nav-item > .nav-link:focus{
+  background: #2BA17A;
+}
+
 
 .nav-sidebar .nav-item > .nav-link:hover{
  background: $colorHover!important;
