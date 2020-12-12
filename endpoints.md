@@ -32,6 +32,8 @@
 #### Request body
 ```json
 {
+  "user": "usuario",
+  "password": "contraseña",
   "resource": "Transaction",
   "action": "SELECT"
 }
