@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './components/main/main.component';
+import { CompaniesComponent } from './companies/companies.component';
 
 const routes: Routes = [
   // {
@@ -32,8 +33,23 @@ const routes: Routes = [
         component: LoginComponent
       },
       {
-        path: 'admin',
-        component: AdminComponent
+        path: '',
+        component: AdminComponent,
+        children: [
+          { 
+            path:'companies',
+            component: CompaniesComponent
+         },
+         {
+         path : '',
+         pathMatch: 'full',
+         redirectTo: '/companies'
+         },
+         {
+         path : '**',
+         redirectTo: '/'
+         }
+        ]
       },
       {
         path: 'main',

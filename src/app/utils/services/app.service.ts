@@ -25,6 +25,7 @@ export class AppService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('x-session');
     this.router.navigate(['/login']);
   }
 }

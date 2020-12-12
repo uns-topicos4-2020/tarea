@@ -3,6 +3,7 @@ import { Component, Inject, PLATFORM_ID, ElementRef, OnInit, Renderer2} from '@a
 import { AuthService } from '../services/auth.service'
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router'
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,13 +24,14 @@ export class LoginComponent implements OnInit {
     private _AuthService:AuthService,
     @Inject(PLATFORM_ID) private platformId, 
     private _FormBuilder: FormBuilder,
-    private rend2: Renderer2   //Permite asignar valores a los elementos del Doom
+    private rend2: Renderer2,   //Permite asignar valores a los elementos del Doom
+    private _Router: Router
   ) { }
 
   ngOnInit(): void {
     this.FormAuth = this._FormBuilder.group({
-      username: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(8)]]
+      user: ["normal_user", [Validators.required]],
+      password: ["ya|no|me|acuerdo", [Validators.required, Validators.minLength(8)]]
     })
     if(isPlatformBrowser(this.platformId)) {
 
@@ -58,28 +60,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.FormAuth.value)
-    Swal.fire({
-      title: '¡SUCESS!',
-      text: 'Usuario Correcto',
-      icon: 'success',
-      confirmButtonColor: '#38d39f',
-    })
-
-
-
-    /*
+   
     this._AuthService.SignIn(this.FormAuth.value).subscribe(ok => {
-
-      
-      Swal.fire({
-        title: '¡SUCESS!',
-        text: 'Usuario Correcto',
-        icon: 'success',
-        confirmButtonColor: '#38d39f',
-      })
-
-
+      console.log("ok: ", ok)
+      this._Router.navigateByUrl("/admin")
     }, err => {
       console.log(err)
 
@@ -91,7 +75,6 @@ export class LoginComponent implements OnInit {
       })
 
     })
-    */
   }
 
 }

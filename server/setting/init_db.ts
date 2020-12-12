@@ -1,14 +1,8 @@
-import { Pool, Client } from 'pg'
-
-const pool = new Pool({
-    user: 'normal_user',
-    host: 'autogestion-dev.c66d2rypdwyt.us-east-2.rds.amazonaws.com',
-    database: 'postgres',
-    password: 'ya|no|me|acuerdo',
-    port: 5432,
-})
-
-export const result = pool.query('SELECT * FROM pg_catalog.pg_user')
-
-
-
+import * as shell from "shelljs"
+import * as pg from 'pg'
+import * as  dotenv from "dotenv";
+dotenv.config({ path: './config.env'})
+shell.env.PGHOST=process.env.PGHOST;
+shell.env.PGDATABASE=process.env.PGDATABASE;
+shell.env.PGPORT=process.env.PGPORT;
+export default new pg.Pool()

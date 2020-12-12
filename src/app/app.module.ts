@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +21,9 @@ import { MainComponent } from './components/main/main.component';
 import { UserDropdownMenuComponent } from './components/main/header/user-dropdown-menu/user-dropdown-menu.component';
 
 import { AuthService } from './services/auth.service';
+import { AuthRequestService } from './services/auth-request.service';
 import { GuardGuard } from './services/guard.guard';
+import { CompaniesComponent } from './companies/companies.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { GuardGuard } from './services/guard.guard';
     FooterComponent,
     MainComponent,
     HeaderComponent,
-    UserDropdownMenuComponent
+    UserDropdownMenuComponent,
+    CompaniesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
@@ -49,7 +52,12 @@ import { GuardGuard } from './services/guard.guard';
   ],
   providers: [
     AuthService,
-    GuardGuard
+    GuardGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthRequestService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

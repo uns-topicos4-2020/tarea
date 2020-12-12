@@ -46,8 +46,20 @@ if (process.env.NODE_ENV !== 'dev') {
   });
 }
 
+global["users"] = [];
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.send({
+      error: {
+          status: err.status || 500,
+          message: err.message
+      }
+  })
+})
 app.use('/api', api);
 
 // Server static files from /browser

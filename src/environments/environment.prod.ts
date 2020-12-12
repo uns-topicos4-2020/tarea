@@ -2,6 +2,6 @@ export const environment = {
   production: true,
   api: {
     host: "",
-    version: ""
+    version: "api"
   }
 };

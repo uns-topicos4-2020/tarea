@@ -1,7 +1,11 @@
 import * as express from 'express';
 import * as morgan from 'morgan';
-import { result } from '../setting/init_db'
-
+import * as companiesCTRL from '../controllers/Company_CTRL'
+import * as usersCTRL from '../controllers/User_CTTRL'
+// const usersCTRL = require("../controllers/User_CTTRL")
+// const companiesCTRL = require("../controllers/Company_CTRL")
+// const { ValidToken } = require("../helpers/JWT")
+import * as auth from '../helpers/JWT'
 class Api {
   public app;
   private message: String = 'String response from server';
@@ -9,6 +13,7 @@ class Api {
   constructor () {
     this.app = express();
     this.app.use(morgan("combined"));
+
     this.mountRoutes();
   }
 
@@ -20,24 +25,17 @@ class Api {
         message: this.message
       });
     });
-    router.post('/login', (req, res) => {
-      try {
-        return res.status(200).send({user: req.body})
 
-      } catch (error) {
-        return res.status(500).send(error)
-      }
-    })
-    router.get('/users', (req, res) => {
-      try {
-        const query = result
-        return res.status(200).send({users: query["__zone_symbol__value"]["rows"]})
+    router.get("/companies", auth.ValidToken,  companiesCTRL.ReadCompanies)
+    router.post("/companies", auth.ValidToken, companiesCTRL.CreateCompanies)
+    router.put("/companies", auth.ValidToken, companiesCTRL.UpdateCompanies)
+    router.delete("/companies", auth.ValidToken, companiesCTRL.DeleteCompanies)
 
-      } catch (error) {
-        return res.status(500).send(error)
-      }
-    })
-
+    router.post("/signin", usersCTRL.SignIn)
+    router.get("/users", usersCTRL.ReadUser)
+    router.post("/users", usersCTRL.CreateUser)
+    router.put("/users", usersCTRL.UpdateUser)
+    router.delete("/users", usersCTRL.DeleteUser)
     module.exports = router;
   }
 }
