@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, ElementRef, Renderer
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { CompaniesService } from '../services/companies.service'
-
+declare const $:any;
 interface Company {
   admanager_order_id: String;
   company_id: String;
@@ -81,6 +81,10 @@ export class CompaniesComponent implements OnInit {
       } else { }
       this.addCompanyGroup.reset()
       this.editCompanyGroup.reset()
+      $("#addEmployeeModal").modal('hide');
+      $("#editEmployeeModal").modal('hide');
+      $("#deleteEmployeeModal").modal('hide');
+      
     } catch (error) {
       
     }
