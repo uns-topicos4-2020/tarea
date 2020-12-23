@@ -9,7 +9,7 @@ export const Read = () => {
 }
 export const Update = (obj, company_id) => {
     return db.query(`UPDATE autogestion."Company" SET company_id = '${obj.company_id}', user_id = '${obj.user_id}', 
-    name = '${obj.name}', web = '${obj.web}', rubro = '${obj.rubro}', admanager_order_id = NULL WHERE company_id = '${company_id}' `)
+    name = '${obj.name}', web = '${obj.web}', rubro = '${obj.rubro}', admanager_order_id = ${obj.admanager_order_id} WHERE company_id = '${company_id}' `)
 }
 export const Delete = (company_id) => {
     return db.query(`DELETE FROM autogestion."Company" WHERE company_id = '${company_id}'`)

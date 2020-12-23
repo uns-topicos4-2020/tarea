@@ -36,19 +36,19 @@ const routes: Routes = [
         path: '',
         component: AdminComponent,
         children: [
-          { 
-            path:'companies',
+          {
+            path: 'companies',
             component: CompaniesComponent
-         },
-         {
-         path : '',
-         pathMatch: 'full',
-         redirectTo: '/companies'
-         },
-         {
-         path : '**',
-         redirectTo: '/'
-         }
+          },
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: '/companies'
+          },
+          {
+            path: '**',
+            redirectTo: '/companies'
+          }
         ]
       },
       {
@@ -56,19 +56,19 @@ const routes: Routes = [
         component: MainComponent
       },
       {
-      path : '',
-      pathMatch: 'full',
-      redirectTo: '/login'
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/login'
       },
       {
-      path : '**',
-      redirectTo: '/'
+        path: '**',
+        redirectTo: '/'
       }
     ]
   },
   {
-  path : '**',
-  redirectTo: '/'
+    path: '**',
+    redirectTo: '/'
   }
 
 ];

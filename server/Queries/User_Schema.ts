@@ -2,7 +2,6 @@
 import { default as db } from '../setting/init_db'
 export const Read = (user, password) => {
     if(user && password) {
-        // return db.query(`SELECT table_name FROM information_schema.tables `)
         return db.query(`SELECT * FROM pg_user WHERE usename = '${user}' LIMIT 1`)
     } else {
         return db.query(`SELECT * FROM pg_user `)

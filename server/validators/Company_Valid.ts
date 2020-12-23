@@ -5,7 +5,7 @@ export const CreateValidator = Joi.object({
     name: Joi.string().lowercase().required(), 
     web: Joi.string().required(), 
     rubro: Joi.string().lowercase().required(), 
-    admanager_order_id: Joi.string().allow("").optional("")
+    admanager_order_id: Joi.number().allow("").optional("")
 })
 export const UpdateValidator = Joi.object({
     company_id: Joi.string().allow("").optional(""), 
@@ -13,7 +13,7 @@ export const UpdateValidator = Joi.object({
     name: Joi.string().lowercase().required(), 
     web: Joi.string().required(), 
     rubro: Joi.string().lowercase().required(), 
-    admanager_order_id: Joi.string().allow("").optional("")
+    admanager_order_id: Joi.number().allow("").optional("")
 })
 export const DeleteIDValidator = Joi.object({
     company_id: Joi.string().required("Select the record to delete!"), 

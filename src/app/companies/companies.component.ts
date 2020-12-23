@@ -25,7 +25,7 @@ class Company implements Company {
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.scss']
 })
-export class CompaniesComponent implements OnInit, OnDestroy {
+export class CompaniesComponent implements OnInit {
   @ViewChild("ExitModal", {static: true, read: ElementRef}) ExitModal:ElementRef
   Companies: Array<Company> = Array<Company>();
   addCompanyGroup: FormGroup
@@ -45,7 +45,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
       name: ["charapito", [Validators.required]],
       web: ["charca.pe", [Validators.required]],
       rubro: ["TI", [Validators.required]],
-      admanager_order_id: ["8678", [Validators.required]]
+      admanager_order_id: ["8678", [Validators.required, Validators.pattern("(0-9)")]]
     })
     this.editCompanyGroup = this._FormBuilder.group({
       user_id: ["", [Validators.required]],
@@ -53,7 +53,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
       name: ["", [Validators.required]],
       web: ["", [Validators.required]],
       rubro: ["", [Validators.required]],
-      admanager_order_id: ["", [Validators.required]]
+      admanager_order_id: ["", [Validators.required, Validators.pattern("(0-9)")]]
     })
 
 
@@ -63,31 +63,31 @@ export class CompaniesComponent implements OnInit, OnDestroy {
     if (isPlatformServer(this.platformId)) {
 
     }
-    this._CompaniesService.Read().subscribe(ok => {
-      console.log(ok)
-      this.Companies = ok;
-    })
+    this.refreshDataTable()
 
-  }
-  ngOnDestroy() {
   }
   async event(ev, data) {
     try {
       if (ev === "create") {
         this.addCompanyGroup.controls["user_id"].setValue(this.addCompanyGroup.controls["name"].value)
         this.addCompanyGroup.controls["company_id"].setValue(this.addCompanyGroup.controls["web"].value)
-        this._CompaniesService.Create(this.addCompanyGroup.value).subscribe()
+        this._CompaniesService.Create(this.addCompanyGroup.value).subscribe(this.refreshDataTable)
       } else if (ev === "update") {
-        console.log(this.addCompanyGroup.value)
-        this._CompaniesService.Update(this.editCompanyGroup.value["company_id"], this.editCompanyGroup.value).subscribe()
+        this._CompaniesService.Update(this.editCompanyGroup.value["company_id"], this.editCompanyGroup.value).subscribe(this.refreshDataTable)
       } else if (ev === "deleteOne") { 
-        this._CompaniesService.Delete(this.addCompanyGroup.value["company_id"]).subscribe()
+        this._CompaniesService.Delete(this.addCompanyGroup.value["company_id"], this.addCompanyGroup.value).subscribe(this.refreshDataTable)
       } else if (ev === "delete") {
-        console.log(this.addCompanyGroup.value)
-        this._CompaniesService.Delete().subscribe()
+        this._CompaniesService.Delete().subscribe(this.refreshDataTable)
       } else { }
+      this.addCompanyGroup.reset()
+      this.editCompanyGroup.reset()
     } catch (error) {
+      
     }
-    this._Renderer2.setAttribute(this.ExitModal.nativeElement, "data-dismiss", "modal")
   }
+
+  private refreshDataTable = (result?:any) => {
+    this._CompaniesService.Read().subscribe(data => this.Companies = data)
+  }
+  
 }
