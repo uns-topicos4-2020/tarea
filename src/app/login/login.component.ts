@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormAuth = this._FormBuilder.group({
-      user: ["normal_user", [Validators.required]],
-      password: ["ya|no|me|acuerdo", [Validators.required, Validators.minLength(8)]]
+      user: ["sololectura", [Validators.required]], // sololectura  // normal_user
+      password: ["nomas|puedo|leer", [Validators.required, Validators.minLength(8)]] // nomas|puedo|leer  // ya|no|me|acuerdo
     })
     if(isPlatformBrowser(this.platformId)) {
 

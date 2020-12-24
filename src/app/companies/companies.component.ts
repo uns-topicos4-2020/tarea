@@ -79,11 +79,11 @@ export class CompaniesComponent implements OnInit {
       } else if (ev === "delete") {
         this._CompaniesService.Delete().subscribe(this.refreshDataTable)
       } else { }
-      this.addCompanyGroup.reset()
-      this.editCompanyGroup.reset()
       $("#addEmployeeModal").modal('hide');
       $("#editEmployeeModal").modal('hide');
       $("#deleteEmployeeModal").modal('hide');
+      this.addCompanyGroup.reset()
+      this.editCompanyGroup.reset()
       
     } catch (error) {
       
